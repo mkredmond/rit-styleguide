@@ -1,31 +1,37 @@
+const variations = [
+  "primary",
+  "secondary",
+  "link",
+  "tag-link",
+  "tag-nolink",
+  "light",
+  "white",
+  "dark",
+  "danger",
+  "info",
+  "warning",
+  "danger",
+  "success",
+  "outline-primary",
+  "outline-secondary",
+  "outline-light",
+  "outline-success",
+  "outline-info",
+  "outline-warning",
+  "outline-danger",
+  "outline-dark",
+];
+
 export default {
   title: "Components/Button",
   argTypes: {
     variation: {
       control: "select",
-      options: [
-        "primary",
-        "secondary",
-        "link",
-        "tag-link",
-        "tag-nolink",
-        "light",
-        "white",
-        "dark",
-        "danger",
-        "info",
-        "warning",
-        "danger",
-        "success",
-        "outline-primary",
-        "outline-secondary",
-        "outline-light",
-        "outline-success",
-        "outline-info",
-        "outline-warning",
-        "outline-danger",
-        "outline-dark",
-      ],
+      options: variations,
+      table: {
+        defaultValue: { summary: "primary" },
+        type: { summary: "string" }
+      }
     },
     size: {
       control: "select",
@@ -33,95 +39,163 @@ export default {
       options: ["sm", "md", "lg", "block"],
     }
   },
+  parameters: {
+    layout: "centered",
+    controls: { expanded: true },
+  }
 };
 
-const Template = ({ label, variation, size }) => {
-  return `<a class="btn btn-${variation} btn-${size}" href="#">${label}</a>`;
+const Template = ({ text, variation, size }) => {
+  return `<div style="display: flex; gap: 1rem">
+    <a class="btn btn-${variation} btn-${size}" href="#">${text}</a>
+    <button class="btn btn-${variation} btn-${size}">${text}</button>
+    </div>`;
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Default = Template.bind({});
+Default.args = {
   variation: "primary",
-  label: "Primary Button",
+  text: "Primary Button",
+  size: "md",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variation: "secondary",
-  label: "Secondary Button",
+  text: "Secondary",
+  size: "md",
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  variation: "link",
+  text: "Link",
+  size: "md",
+};
+
+export const TagLink = Template.bind({});
+TagLink.args = {
+  variation: "tag-link",
+  text: "Tag Link",
+  size: "md",
+};
+
+export const TagNolink = Template.bind({});
+TagNolink.args = {
+  variation: "tag-nolink",
+  text: "Tag No Link",
+  size: "md",
+};
+
+export const Light = Template.bind({});
+Light.args = {
+  variation: "light",
+  text: "Light",
+  size: "md",
 };
 
 export const White = Template.bind({});
 White.args = {
-  text: 'White Button',
-  variation: 'white',
-  size: 'md',
+  variation: "white",
+  text: "White",
+  size: "md",
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-  text: 'Dark Button',
-  variation: 'dark',
-  size: 'md'
+  variation: "dark",
+  text: "Dark",
+  size: "md",
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
-  text: 'Danger Button',
-  variation: 'danger',
-  size: 'md'
+  variation: "danger",
+  text: "Danger",
+  size: "md",
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  variation: "info",
+  text: "Info",
+  size: "md",
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  variation: "warning",
+  text: "Warning",
+  size: "md",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  variation: "success",
+  text: "Success",
+  size: "md",
 };
 
 export const OutlinePrimary = Template.bind({});
 OutlinePrimary.args = {
-  text: 'Outline Primary Button',
-  variation: 'outline-primary',
-  size: 'md',
-  hover: false
+  variation: "outline-primary",
+  text: "Outline Primary",
+  size: "md",
 };
 
-export const OutlineWhite = Template.bind({});
-OutlineWhite.args = {
-  text: 'Outline White Button',
-  variation: 'outline-white',
-  size: 'md',
-  hover: false
+export const OutlineSecondary = Template.bind({});
+OutlineSecondary.args = {
+  variation: "outline-secondary",
+  text: "Outline Secondary",
+  size: "md",
 };
 
-export const OutlineDark = Template.bind({});
-OutlineDark.args = {
-  text: 'Outline Dark Button',
-  variation: 'outline-dark',
-  size: 'md',
-  hover: false
+export const OutlineLight = Template.bind({});
+OutlineLight.args = {
+  variation: "outline-light",
+  text: "Outline Light",
+  size: "md",
+};
+
+export const OutlineSuccess = Template.bind({});
+OutlineSuccess.args = {
+  variation: "outline-success",
+  text: "Outline Success",
+  size: "md",
+};
+
+export const OutlineInfo = Template.bind({});
+OutlineInfo.args = {
+  variation: "outline-info",
+  text: "Outline Info",
+  size: "md",
+};
+
+export const OutlineWarning = Template.bind({});
+OutlineWarning.args = {
+  variation: "outline-warning",
+  text: "Outline Warning",
+  size: "md",
 };
 
 export const OutlineDanger = Template.bind({});
 OutlineDanger.args = {
-  text: 'Outline Danger Button',
-  variation: 'outline-danger',
-  size: 'md',
-  hover: false
+  variation: "outline-danger",
+  text: "Outline Danger",
+  size: "md",
+};
+
+export const OutlineDark = Template.bind({});
+OutlineDark.args = {
+  variation: "outline-dark",
+  text: "Outline Dark",
+  size: "md",
 };
 
 export const AllVariations = () => {
   const element = document.createElement('div');
-  element.style.display = 'grid';
-  element.style.gridTemplateColumns = 'repeat(auto-fill, minmax(200px, 1fr))';
-  element.style.gap = '1rem';
+  element.classList.add('grid-cols-sm');
   element.style.padding = '1rem';
-
-  const variations = [
-    'primary',
-    'white',
-    'dark',
-    'danger',
-    'outline-primary',
-    'outline-white',
-    'outline-dark',
-    'outline-danger',
-    'not-accessible'
-  ];
 
   const buttons = variations.map(variation => 
     `<div><a class="btn btn-${variation} btn-md" href="#">${variation}</a></div>`
@@ -129,4 +203,7 @@ export const AllVariations = () => {
 
   element.innerHTML = buttons;
   return element;
+};
+AllVariations.parameters = {
+  layout: 'fullscreen'
 };

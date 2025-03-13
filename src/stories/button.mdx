@@ -1,0 +1,20 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as ButtonStories from './button.stories';
+
+<Meta title="Components/Button" of={ButtonStories}/>
+
+<Story of={ButtonStories.Default} name="Button" />
+
+| Name | Description | Default | Available |
+| --- | --- | --- | --- |
+| `variant` | Color and style of the button | `btn-primary` | `btn-secondary`, `btn-link`, `btn-tag-link`, `btn-tag-nolink`, `btn-light`, `btn-white`, `btn-dark`, `btn-danger`, `btn-info`, `btn-warning`, `btn-danger`, `btn-success`, `btn-outline-primary`, `btn-outline-secondary`, `btn-outline-light`, `btn-outline-success`, `btn-outline-info`, `btn-outline-warning`, `btn-outline-danger`, `btn-outline-dark` |
+| `size` | Size of the button | null | `btn-sm`, `btn-lg` |
+
+As an anchor tag:
+```html
+<a href="#" class="btn btn-primary">Primary Button</a>
+```
+As a button:
+```html
+<button class="btn btn-primary">Primary Button</button>
+```

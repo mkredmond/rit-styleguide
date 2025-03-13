@@ -23,5 +23,8 @@
     "storybook": "^8.6.4",
     "storybook-addon-pseudo-states": "^4.0.2",
     "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "remark-gfm": "^4.0.1"
   }
 }

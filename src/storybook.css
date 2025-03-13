@@ -1,0 +1,94 @@
+html {
+    background-color: initial !important;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+
+.gap-4 {
+    gap: 1.5rem;
+}
+
+.gap-5 {
+    gap: 2rem;
+}
+
+.grid-cols {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    max-width: min(100%,80em);
+    margin: 0 auto;
+}
+
+.grid-cols-sm {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: min(100%,80em);
+    margin: 0 auto;
+}
+
+.docblock-source {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+.language-json,
+.language-jsx,
+.language-html {
+  color: white;
+}
+
+.prismjs {
+  background-color: #2d2d2d !important;
+  font-size: 1.05rem !important;
+  line-height: 1.5 !important;
+}
+
+.prismjs .token.tag {
+  color: #D7BA7D !important;
+  font-weight: bold;
+}
+
+.prismjs .token.property,
+.prismjs .token.attr-name{
+  color: #9CDCFE !important;
+}
+
+.prismjs .token.string {
+  color: #a371bb !important;
+}
+.prismjs .token.number,
+.prismjs .token.keyword, 
+.prismjs .token.attr-value {
+  color: #CE9178 !important;
+}
+ 
+.prismjs .token.punctuation {
+    color: #CCCCCC !important;
+}
+
+.prismjs .token.attr-equals {
+    color: #569CD6 !important;
+}
+
+.prismjs .token.comment {
+  color: #8b8b8b !important;
+}
+
+.prismjs * span,
+.prismjs * .token {
+    font-weight: 600;
+    font-family: monospace !important;
+}
+
+#storybook-docs table {
+  width: 100% !important;
+  margin-bottom: 40px;
+}
+
+#storybook-docs tr {
+    background-color: white;
+}
