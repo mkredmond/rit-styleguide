@@ -1,0 +1,42 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Colors" />
+
+<ColorPalette>
+  <ColorItem
+    title="theme.color.greyscale"
+    subtitle="Some of the greys"
+    colors={{ White: '#FFFFFF', Light: '#EEEEEE', Gray: '#E9ECEF', Black: '#000000' }}
+  />
+  <ColorItem 
+    title="theme.color.primary" 
+    subtitle="Primary" 
+    colors={{ Orange: '#F76902' }} 
+  />
+  <ColorItem
+    title="theme.color.accents"
+    subtitle="Accent Colors"
+    colors={{
+        Green: "#84BD00",
+        YellowGreen: "#C4D600",
+        Blue: "#009CBD",
+        Purple: "#7D55C7",
+        Red: "#DA291C",
+        Yellow: "#F6BE00",
+    }}
+  />
+  <ColorItem
+    title="theme.color.text"
+    subtitle="Text Black"
+    colors={{
+      Black: "#212529"
+    }}
+  />
+  <ColorItem
+    title="theme.color.background"
+    subtitle="Background White"
+    colors={{
+    White: "#FFFFFF"
+    }}
+  />
+</ColorPalette>
