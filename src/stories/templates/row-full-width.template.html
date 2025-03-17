@@ -1,33 +1,19 @@
-<div
-  class="single-column-container single-column-container-46682 page-row position-relative border-bottom-0 paragraph paragraph--type--full-width-content paragraph--view-mode--default {{row_class}}"
->
-  <a
-    class="row--title--anchor d-block position-relative invisible"
-    id="planning-ahead"
-    role="button"
-  ></a>
-  <div
-    class="position-relative content-row--container container pt-5 pb-md-6 pb-5"
-  >
-    <div class="page-columns">
-      <div class="row--title position-relative text-center mb-0">{{title}}</div>
-      <div class="row">
-        <div
-          class="page-column-full-width page-column field field--name-field-content2 field--type-entity-reference-revisions field--label-hidden field__items"
-        >
-          <div class="field__item">
-            <div
-              class="paragraph paragraph--type--text-content paragraph--view-mode--default"
-            >
-              <div
-                class="clearfix text-formatted field field--name-field-content field--type-text-long field--label-hidden field__item"
-              >
-                {{content}}
+<div class="single-column-container page-row position-relative border-bottom {{outer_container_classes}} paragraph paragraph--type--full-width-content ">
+  <a class="row--title--anchor d-block position-relative invisible" id="title" role="button"><span class="sr-only">Example link</span></a>
+  <div class="position-relative content-row--container scrollreveal-item container pt-5 pb-md-6 pb-5">
+     <div class="page-columns  {{inner_container_classes}}">
+        <h2 class="row--title position-relative text-center  mb-5 mt-3">{{title}} <span class="sr-only">Heading Placeholder for when empty</span></h2>
+        <div class="row">
+           <div class="page-column-full-width page-column field field--name-field-content2 field--type-entity-reference-revisions field--label-hidden field__items">
+              <div class="field__item">
+                 <div class="paragraph paragraph--type--text-content paragraph--view-mode--default">
+                    <div class="clearfix text-formatted field field--name-field-content field--type-text-long field--label-hidden field__item">
+                       {{content}}
+                    </div>
+                 </div>
               </div>
-            </div>
-          </div>
+           </div>
         </div>
-      </div>
-    </div>
+     </div>
   </div>
 </div>

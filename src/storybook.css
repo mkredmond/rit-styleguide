@@ -30,6 +30,11 @@ html {
     margin: 0 auto;
 }
 
+.w-100p {
+  width: 100px;
+  flex-shrink: 0;
+}
+
 .docblock-source {
     margin-top: 0 !important;
     margin-bottom: 20px !important;
@@ -86,7 +91,7 @@ html {
 
 #storybook-docs table {
   width: 100% !important;
-  margin-bottom: 40px;
+  margin-block: 40px;
 }
 
 #storybook-docs tr {
