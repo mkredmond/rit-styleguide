@@ -1,4 +1,4 @@
-import template from './templates/row-full-width.template.html?raw'
+import { Row } from '../../templates/Row';
 
 export default {
   title: "Components/Lists",
@@ -37,20 +37,16 @@ export default {
   },
 };
 
-const parseTemplate = (template, vars) => {
-  return template.replace(/\{\{(\w+)\}\}/g, (match, key) => vars[key] || '');
-};
 
 const Template = ({ outer_container_classes, listClass, content, ...args }) => {
   const classes = Array.isArray(listClass) ? Array.from(listClass).join(' ') : listClass;
   const dynamicList = `<ul class="${classes}">
     ${content}
   </ul>`;
-  return `<div>
-    ${outer_container_classes.map(outer_container_classes => 
-      parseTemplate(template, { outer_container_classes, content: dynamicList, ...args })
-    ).join('\n')}
-  </div>`;
+
+  return outer_container_classes.map(outer_container_classes => 
+      Row({ outer_container_classes, content: dynamicList, ...args })
+    ).join('\n');
 };
 
 export const Default = Template.bind({});

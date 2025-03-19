@@ -8,9 +8,10 @@ const config = {
   ],
   "addons": [
     "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
-    "@storybook/addon-interactions", 
+    // "@chromatic-com/storybook",
+    // "@storybook/addon-interactions", 
     "@storybook/addon-a11y",
+    "@ljcl/storybook-addon-cssprops",
     // "storybook-addon-pseudo-states"
     {
       name: '@storybook/addon-docs',
@@ -22,6 +23,7 @@ const config = {
         },
       },
     },
+    // './refreshCssPropsAddon.js',
   ],
   "framework": {
     "name": "@storybook/html-vite",

@@ -1,4 +1,5 @@
-import template from './templates/row-full-width.template.html?raw'
+// import template from '../templates/row-full-width.template.html?raw'
+import { Row } from "../../templates/Row";
 
 export default {
   title: "Components/Links",
@@ -7,45 +8,55 @@ export default {
       control: "object",
       description: "Array of row classes to generate",
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
-    content: { control: "text" }
+    content: { control: "text" },
   },
   parameters: {
     controls: { expanded: true },
   },
 };
 
-const parseTemplate = (template, vars) => {
-  return template.replace(/\{\{(\w+)\}\}/g, (match, key) => vars[key] || '');
-};
-
 const Template = ({ outer_container_classes, ...args }) => {
-  return `<div class="grid-cols">
-    ${outer_container_classes.map(outer_container_classes => 
-      parseTemplate(template, { outer_container_classes, ...args })
-    ).join('\n')}
-  </div>`;
+  return outer_container_classes
+    .map((outer_container_classes) => Row({ outer_container_classes, ...args }))
+    .join("\n");
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  outer_container_classes: ['', 'bg-black', 'bg-light', 'bg-primary text-white'],
-  content: "<p>Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+  outer_container_classes: [
+    "",
+    "bg-black",
+    "bg-light",
+    "bg-primary text-white",
+  ],
+  content:
+    '<p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
 };
-Default.storyName = 'Inline Links';
+Default.storyName = "Inline Links";
 
 export const CallToActions = Template.bind({});
 CallToActions.args = {
-  outer_container_classes: ['', 'bg-black', 'bg-light', 'bg-primary text-white'],
+  outer_container_classes: [
+    "",
+    "bg-black",
+    "bg-light",
+    "bg-primary text-white",
+  ],
   content: `<p>Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p><a href="#" class="call-to-action">Please do something</a></p>`
+  <p><a href="#" class="call-to-action">Please do something</a></p>`,
 };
 
 export const IconLinks = Template.bind({});
 IconLinks.args = {
-  outer_container_classes: ['', 'bg-black', 'bg-light', 'bg-primary text-white'],
+  outer_container_classes: [
+    "",
+    "bg-black",
+    "bg-light",
+    "bg-primary text-white",
+  ],
   content: `
     <ul class="list-style-none">
         <li class="position-relative align-items-baseline d-flex icon-link-wrapper">
@@ -61,5 +72,5 @@ IconLinks.args = {
           <a href="#">Writing and Design</a>
         </li>
     </ul>
-  `
+  `,
 };
