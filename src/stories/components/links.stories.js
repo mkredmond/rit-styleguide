@@ -1,5 +1,5 @@
 // import template from '../templates/row-full-width.template.html?raw'
-import { Row } from "../../templates/Row";
+import { renderRow, rowParagraphObject, rowBackgrounds, rowContent } from '../../templates/Row';
 
 export default {
   title: "Components/Links",
@@ -18,9 +18,19 @@ export default {
   },
 };
 
-const Template = ({ outer_container_classes, ...args }) => {
-  return outer_container_classes
-    .map((outer_container_classes) => Row({ outer_container_classes, ...args }))
+const Template = ({content,  ...args }) => {
+
+  return rowBackgrounds
+    .map((bg_color) => 
+      renderRow({
+        ...rowParagraphObject,
+        field_background_color: { value: bg_color },
+      }, 
+      {
+        ...rowContent, 
+        field_content: content ,
+      })
+    )
     .join("\n");
 };
 

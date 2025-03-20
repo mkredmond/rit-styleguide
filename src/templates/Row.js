@@ -1,6 +1,9 @@
 /**
  * Renders a content row similar to the content-row.html.twig template
- * @param {Object} params - Parameters for rendering the content row
+ * @param {Object} paragraph - Paragraph configuration object
+ * @param {Object} content - Content to render within the row
+ * @param {string} classes - Additional classes to add
+ * @param {Object} attributes - HTML attributes for the row
  * @returns {string} HTML markup for the content row
  */
 
@@ -8,11 +11,7 @@ export function renderRow(
   paragraph,
   content = {},
   classes = "",
-  attributes = {},
-  is_restricted = false,
-  parent_is_paragraph = false,
-  has_sidebar_progress_nav = false,
-  has_none_left_aligned_progress_nav = false
+  attributes = {}
 ) {
   // Clone attributes to avoid mutation of the original
   const finalAttributes = { ...attributes };
@@ -22,9 +21,6 @@ export function renderRow(
   if (attributes.class) {
     attributeClasses = attributeClasses.concat(attributes.class.split(" "));
   }
-
-  // Process restrictions
-  const restricted = is_restricted;
 
   // Bottom border logic
   if (paragraph.field_no_bottom_border?.value === true) {
@@ -48,45 +44,27 @@ export function renderRow(
   // Container classes
   let container_classes = "position-relative content-row--container";
 
-  if (
-    paragraph.field_disable_scroll_reveal?.value === false &&
-    !parent_is_paragraph
-  ) {
-    container_classes += " scrollreveal-item";
-  }
-
-  let outer_container_classes = "";
   let inner_container_classes = "";
 
   // Container sizing logic
-  if (!has_sidebar_progress_nav) {
-    if (paragraph.field_no_container_until_xxl_wid?.value === true) {
-      container_classes += " container-xxl";
-    } else {
-      container_classes += " container";
-    }
+  if (paragraph.field_no_container_until_xxl_wid?.value === true) {
+    container_classes += " container-xxl";
+  } else {
+    container_classes += " container";
   }
 
   // Top spacing logic
   if (paragraph.field_no_top_spacing?.value === true) {
     container_classes += " pt-0";
   } else {
-    if (has_sidebar_progress_nav) {
-      container_classes += " content-row--mt";
-    } else {
-      container_classes += " pt-5";
-    }
+    container_classes += " pt-5";
   }
 
   // Bottom spacing logic
   if (paragraph.field_no_bottom_spacing?.value === true) {
     container_classes += " pb-0";
   } else {
-    if (has_sidebar_progress_nav) {
-      container_classes += " content-row--mb";
-    } else {
-      container_classes += " pb-md-6 pb-5";
-    }
+    container_classes += " pb-md-6 pb-5";
   }
 
   // Custom container classes
@@ -113,11 +91,7 @@ export function renderRow(
     row_title = " ";
     row_title_classes += " mb-0";
   } else {
-    if (has_sidebar_progress_nav) {
-      row_title_classes += " mb-4";
-    } else {
-      row_title_classes += " mb-5 mt-3";
-    }
+    row_title_classes += " mb-5 mt-3";
   }
 
   // Menu title logic
@@ -179,8 +153,7 @@ export function renderRow(
   // Generate background image markup
   let background_image = "";
   if (has_background_image) {
-    const imageUrl =
-      paragraph.field_background_image[random_image].entity.fileuri;
+    const imageUrl = paragraph.field_background_image[random_image].entity.fileuri;
     const imageUrlSm = imageUrl + "?style=full_width_bg_sm"; // Simplified style application
     const imageAlt = paragraph.field_background_image.alt || "";
 
@@ -194,109 +167,44 @@ export function renderRow(
      `;
   }
 
-  // Generate content structure
-  let content_start = "";
-  let content_end = "";
+  // Generate content structure - unified approach
+  let content_start = `
+    ${row_title
+      ? `<a class="row--title--anchor d-block position-relative invisible" id="${row_title_id}" role="button"></a>`
+      : ""
+    }
+    ${has_background_image &&
+      paragraph.field_background_image_always_fu?.value === true
+      ? background_image
+      : ""
+    }
+    <div class="${container_classes}">
+      ${has_background_image && paragraph.field_background_image_always_fu?.value !== true
+        ? background_image
+        : ""
+      }
+      <div class="page-columns ${inner_container_classes}">
+        ${row_title
+          ? `
+            ${row_title_icon
+              ? `<div class="row-title-icon mb-n2">${row_title_icon}</div>`
+              : ""
+            }
+            ${(row_title.trim().length > 0 ? "<h2" : "<div") +
+              ` class="row--title position-relative text-center ${row_title_classes}">${row_title}${row_title_sr_only}</` +
+              (row_title.trim().length > 0 ? "h2>" : "div>")
+            }
+          `
+          : ""
+        }
+        <div class="${row_classes}">
+  `;
 
-  if (has_sidebar_progress_nav) {
-    content_start = `
-       ${
-         row_title
-           ? `<a class="row--title--anchor d-block position-relative invisible" id="${row_title_id}" role="button"></a>`
-           : ""
-       }
-       ${
-         has_background_image &&
-         paragraph.field_background_image_always_fu?.value === true
-           ? background_image
-           : ""
-       }
-       <div class="${container_classes}">
-         ${
-           has_background_image &&
-           paragraph.field_background_image_always_fu?.value !== true
-             ? background_image
-             : ""
-         }
-         <div class="page-columns ${inner_container_classes}">
-           ${
-             row_title
-               ? `
-             ${
-               row_title_icon
-                 ? `<div class="row-title-icon mb-n2">${row_title_icon}</div>`
-                 : ""
-             }
-             ${
-               (row_title.trim().length > 0 ? "<h2" : "<div") +
-               ` class="row--title ${row_title_classes}">${row_title}${row_title_sr_only}</` +
-               (row_title.trim().length > 0 ? "h2>" : "div>")
-             }
-           `
-               : ""
-           }
-           <div class="${row_classes}">
-     `;
-
-    content_end = `
-           </div>
-         </div>
-       </div>
-     `;
-  } else {
-    content_start = `
-       ${
-         has_none_left_aligned_progress_nav
-           ? '<div class="row"><div class="col-md-10 col-lg-8 col-xl-7 mx-auto mw-900">'
-           : ""
-       }
-       
-       ${
-         row_title
-           ? `<a class="row--title--anchor d-block position-relative invisible" id="${row_title_id}" role="button"></a>`
-           : ""
-       }
-       ${
-         has_background_image &&
-         paragraph.field_background_image_always_fu?.value === true
-           ? background_image
-           : ""
-       }
-       <div class="${container_classes}">
-         ${
-           has_background_image &&
-           paragraph.field_background_image_always_fu?.value !== true
-             ? background_image
-             : ""
-         }
-         <div class="page-columns ${inner_container_classes}">
-           ${
-             row_title
-               ? `
-             ${
-               row_title_icon
-                 ? `<div class="row-title-icon mb-n2">${row_title_icon}</div>`
-                 : ""
-             }
-             ${
-               (row_title.trim().length > 0 ? "<h2" : "<div") +
-               ` class="row--title position-relative text-center ${row_title_classes}">${row_title}${row_title_sr_only}</` +
-               (row_title.trim().length > 0 ? "h2>" : "div>")
-             }
-           `
-               : ""
-           }
-           <div class="${row_classes}">
-     `;
-
-    content_end = `
-           </div>
-         </div>
-       </div>
-       
-       ${has_none_left_aligned_progress_nav ? "</div></div>" : ""}
-     `;
-  }
+  let content_end = `
+        </div>
+      </div>
+    </div>
+  `;
 
   // Process content blocks
   let content_inner = "";
@@ -310,15 +218,9 @@ export function renderRow(
     return filteredContent;
   };
 
-  if (has_sidebar_progress_nav) {
-    content_inner += renderContent(
-      withoutFields(content, ["field_row_title", "field_menu_title"])
-    );
-  } else {
-    content_inner += renderContent(
-      withoutFields(content, ["field_row_title", "field_menu_title"])
-    );
-  }
+  content_inner += renderContent(
+    withoutFields(content, ["field_row_title", "field_menu_title"])
+  );
 
   // Combine attribute classes
   finalAttributes.class = attributeClasses
@@ -340,14 +242,15 @@ export function renderRow(
 
   // Generate the final HTML markup
   return `
-     <div ${attrsString}>
-       ${content_start}
-         ${content_inner}
-       ${content_end}
-     </div>
-   `;
+    <div ${attrsString}>
+      ${content_start}
+        ${content_inner}
+      ${content_end}
+    </div>
+  `;
 }
 
+// The rest of the file remains unchanged
 export const rowParagraphObject = {
   // Bottom border control
   field_no_bottom_border: {
@@ -411,7 +314,7 @@ export const rowParagraphObject = {
 
   // Row title icon
   field_row_title_icon_class: {
-    value: "fas fa-star",
+    value: "",
   },
 
   // Background image
@@ -448,11 +351,11 @@ export const rowContent = {
 };
 
 export const rowBackgrounds = [
-   "has_white_background",
-   "has_gray_background",
-   "has_primary_background",
-   "has_black_background",
- ];
+  "has_white_background",
+  "has_gray_background",
+  "has_primary_background",
+  "has_black_background",
+];
 
 /**
  * Helper function to render content
