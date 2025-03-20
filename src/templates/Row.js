@@ -6,9 +6,9 @@
 
 export function renderRow(
   paragraph,
-  attributes = {},
   content = {},
   classes = "",
+  attributes = {},
   is_restricted = false,
   parent_is_paragraph = false,
   has_sidebar_progress_nav = false,
@@ -35,7 +35,6 @@ export function renderRow(
 
   // Background color logic
   const bgColor = paragraph.field_background_color?.value;
-  console.log(bgColor);
   if (bgColor === "has_white_background") {
     attributeClasses.push("bg-white");
   } else if (bgColor === "has_gray_background") {

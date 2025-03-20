@@ -73,16 +73,16 @@ export function renderImageCard(paragraph, content, attributes = {}, title_attri
     }
     
     // Image dimensions and padding
-    const image_width = paragraph.field_image?.[0]?.width || 1;
-    const image_height = paragraph.field_image?.[0]?.height || 1;
+    const image_width = paragraph.field_image?.width || 1;
+    const image_height = paragraph.field_image?.height || 1;
     const padding_bottom = (image_height / image_width) * 100;
     
     // Get field values
-    const field_link_url = paragraph.field_link?.[0]?.url || '';
-    const field_image_alt = paragraph.field_image?.[0]?.alt || '';
+    const field_link_url = paragraph.field_link?.url || '';
+    const field_image_alt = paragraph.field_image?.alt || '';
     const field_title_value = paragraph.field_title?.value || '';
-    const field_title_content = content.field_title?.[0] || '';
-    const field_description_content = content.field_description?.[0] || '';
+    const field_title_content = content.field_title || '';
+    const field_description_content = content.field_description || '';
     
     // Check for video links
     let is_youtube = false;
@@ -164,11 +164,11 @@ export const imageCardParagraph = {
    
    // Image card fields
    field_image: {
-     width: 800,
-     height: 600,
+     width: 1200,
+     height: 630,
      alt: 'Sample image description',
      entity: {
-       fileuri: 'https://www-staging.rit.edu/sites/rit.edu/files/campaigns/thrive/singer.jpg'
+       fileuri: 'https://www-staging.rit.edu/sites/rit.edu/files/images/paragraph/image-card/graduate-p-social.jpg'
      }
    },
    
@@ -184,10 +184,10 @@ export const imageCardParagraph = {
      value: '<p>This is a sample description for the image card. It can contain HTML markup.</p>'
    },
    
-   field_link: [{
+   field_link: {
      url: 'https://www.example.com',
      value: true
-   }],
+   },
    
    field_enable_lightbox: {
      value: true

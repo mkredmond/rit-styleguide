@@ -1,7 +1,6 @@
 import {
   renderRow,
   rowParagraphObject,
-  rowAttributes,
   rowContent,
   rowBackgrounds,
 } from "../../templates/Row";
@@ -46,7 +45,6 @@ export const Default = () => {
           ...rowParagraphObject,
           field_background_color: { value: bg_color },
         },
-        rowAttributes,
         rowContent,
       )
     )
@@ -54,9 +52,11 @@ export const Default = () => {
 };
 
 export const RowTitleBorders = ({ rowClasses, ...args }) => {
-  
   const imageCard = renderImageCard(imageCardParagraph, imageCardContent);
-  const content = { ...rowContent, field_content: `<div class="col-md-6">${imageCard}</div><div class="col-md-6">${imageCard}</div>` };
+  const content = { 
+    ...rowContent, 
+    field_content: `<div class="col-md-6">${imageCard}</div><div class="col-md-6">${imageCard}</div>` 
+  };
 
   return rowBackgrounds
     .map((bg_color) =>
@@ -65,7 +65,6 @@ export const RowTitleBorders = ({ rowClasses, ...args }) => {
           ...rowParagraphObject,
           field_background_color: { value: bg_color },
         },
-        rowAttributes,
         content,
         rowClasses,
       )
