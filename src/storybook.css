@@ -34,6 +34,10 @@ html {
   width: 100px;
   flex-shrink: 0;
 }
+.w-200p {
+  width: 200px;
+  flex-shrink: 0;
+}
 
 .docblock-source {
     margin-top: 0 !important;
@@ -96,4 +100,17 @@ html {
 
 #storybook-docs tr {
     background-color: white;
+}
+
+:where(.bg-primary) code {
+  color: black;
+}
+
+/* Sidebar navigation styling for better ordered lists */
+.sidebar-item {
+  transition: all 0.2s ease;
+}
+
+.sidebar-item[data-selected="true"] {
+  font-weight: bold;
 }

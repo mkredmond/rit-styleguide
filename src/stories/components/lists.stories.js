@@ -73,51 +73,67 @@ Default.args = {
 
 export const ListsWithCustomIcons = Template.bind({});
 ListsWithCustomIcons.args = {
-  listClass: 'columns-3',
+  listClass: 'columns-3 list-style-none',
   content: `
-          <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-bullhorn fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#advertising-and-brand-management">Advertising and Brand Management</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-trophy-alt fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#athletics-communications">Athletics Communications</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-camera-movie fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#video-production">Video Production</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-paragraph fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#writing-and-design">Writing and Design</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-user-headset fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#event-support">Event Support</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-video far text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#event-video-production">Event Video Production</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-comments-alt fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#strategic-communications">Strategic Communications</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-brain fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#marketing-intelligence">Marketing Intelligence</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-newspaper fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#news-and-media-relations">News and Media Relations</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-camera fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#photography">Photography</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-book fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#key-university-publications">Key University Publications</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-hashtag fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#social-media">Social Media</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-hockey-sticks fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#sportszone">SportsZone</a></li>
-  <li class="position-relative align-items-baseline d-flex icon-link-wrapper"><span
-      class="fa-laptop-code fal text-align-center pl-0" aria-hidden="true"></span><a class="link-with-icon see-more"
-      href="#website-and-application-development">Website and Application Development</a></li>
-  `
+          <li>
+  <a class="fa-bullhorn fa" href="#advertising-and-brand-management"
+    >Advertising and Brand Management</a
+  >
+</li>
+<li>
+  <a class="fa-trophy-alt fa" href="#athletics-communications"
+    >Athletics Communications</a
+  >
+</li>
+<li>
+  <a class="fa-camera-movie fa" href="#video-production">Video Production</a>
+</li>
+<li>
+  <a class="fa-paragraph fa" href="#writing-and-design">Writing and Design</a>
+</li>
+<li>
+  <a class="fa-user-headset fa" href="#event-support">Event Support</a>
+</li>
+<li>
+  <a class="fa-video far" href="#event-video-production"
+    >Event Video Production</a
+  >
+</li>
+<li>
+  <a class="fa-comments-alt fa" href="#strategic-communications"
+    >Strategic Communications</a
+  >
+</li>
+<li>
+  <a class="fa-brain fa" href="#marketing-intelligence"
+    >Marketing Intelligence</a
+  >
+</li>
+<li>
+  <a class="fa-newspaper fa" href="#news-and-media-relations"
+    >News and Media Relations</a
+  >
+</li>
+<li>
+  <a class="fa-camera fa" href="#photography">Photography</a>
+</li>
+<li>
+  <a class="fa-book fa" href="#key-university-publications"
+    >Key University Publications</a
+  >
+</li>
+<li>
+  <a class="fa-hashtag fa" href="#social-media">Social Media</a>
+</li>
+<li>
+  <a class="fa-hockey-sticks fa" href="#sportszone">SportsZone</a>
+</li>
+<li>
+  <a class="fa-laptop-code fa" href="#website-and-application-development"
+    >Website and Application Development</a
+  >
+</li>
+`
 };
 
 

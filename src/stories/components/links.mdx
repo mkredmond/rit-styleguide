@@ -1,0 +1,61 @@
+import { Meta, Canvas, Story, Controls, Unstyled } from '@storybook/blocks';
+import * as LinkStories from './links.stories';
+
+<Meta title="Components/Button" of={LinkStories}/>
+
+## There are multiple ways to create a link with an icon. Here are a few examples:
+
+<Unstyled>
+    <div class="border px-3 pt-3 my-4">
+        <p>Add an icon to a link element:</p>
+        <div class="mb-3"><a href="#" class="far fa-users">Link text</a></div>
+        ```html
+        <a href="#" class="far fa-users">Link text</a>
+        ```
+    </div>
+
+    <div class="border px-3 pt-3 my-4">
+        <p>Add an icon after the text:</p>
+        <div class="mb-3"><a href="#" class="far fa-users icon-after">Link text</a></div>
+        ```html
+        <a href="#" class="far fa-users icon-after">Link text</a>
+        ```
+    </div>
+
+    <div class="border px-3 pt-3 my-4">
+        <p>Add an icon to a non-link element:</p>
+        <div class="mb-3"><span class="far fa-users icon-el">Link text</span></div>
+        ```html
+        <span class="far fa-users icon-el">Link text</span>
+        ```
+    </div>
+
+
+    <div class="border px-3 pt-3 my-4">
+        <p>Prevent text from wrapping under the icon:</p>
+        <div class="mb-3 w-200p"><a href="#" class="far fa-users icon-block">Link text that is really long and that should wrap</a></div>
+        ```html
+        <a href="#" class="far fa-users icon-block">Link text</a>
+        ```
+    </div>
+
+
+    <div class="border px-3 pt-3 my-4">
+        <p>Provide multiple icons:</p>
+        <div class="mb-3">
+            <span class="align-items-baseline d-flex icon-link-wrapper">
+                <span class="fal fa-pencil-paintbrush text-center" aria-hidden="true"></span>
+                <span class="fal fa-ruler-triangle text-center mr-2 mr-md-1" aria-hidden="true"></span>
+                <a href="https://www.rit.edu/study/art-design-and-architecture" class="see-more mb-2" >Art, Design, and Architecture</a>
+            </span>
+        </div>
+        ```html
+        <span class="align-items-baseline d-flex icon-link-wrapper">
+            <span class="fal fa-pencil-paintbrush text-center" aria-hidden="true"></span>
+            <span class="fal fa-ruler-triangle text-center mr-2 mr-md-1" aria-hidden="true"></span>
+            <a href="https://www.rit.edu/study/art-design-and-architecture" class="see-more mb-2" >Art, Design, and Architecture</a>
+        </span>
+        ```
+    </div>
+</Unstyled>
+

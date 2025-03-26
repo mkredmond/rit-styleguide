@@ -31,6 +31,16 @@ const preview = {
         }
       ],
     },
+    options: {
+      storySort: {
+        order: [
+          'Theme', // Put your introduction/documentation first
+          'Typography', // Your components 
+          'Components', // Your components 
+          '*', // All other stories
+        ],
+      },
+    },
   },
 };
 

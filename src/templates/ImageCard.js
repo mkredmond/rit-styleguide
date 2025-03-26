@@ -138,14 +138,10 @@ export function renderImageCard(paragraph, content, attributes = {}, title_attri
             </div>
           </div>
           <div class="image-card--text ${text_classes}">
-            ${field_link_url && field_title_value ? 
-              `<a href="${field_link_url}" class="d-block card-link">` : ''}
-            ${field_title_value ? 
-              `<p ${titleAttributesString}>
-                ${field_title_content}
-              </p>` : ''}
-            ${field_link_url && field_title_value ? 
-              `</a>` : ''}
+          ${field_title_value ? 
+            `<p ${titleAttributesString}>
+            ${field_link_url ? `<a href="${field_link_url}" class="fa fa-angle-right icon-after">` : ''}${field_title_content}${field_link_url ? `</a>` : ''}
+            </p>` : ''}
             <div class="card-text ${sub_text_classes}">
               ${field_description_content}
             </div>
