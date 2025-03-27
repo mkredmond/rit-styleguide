@@ -1,5 +1,5 @@
 import {
-  renderRow,
+  Row,
   rowParagraphObject,
   rowContent,
   rowBackgrounds,
@@ -40,34 +40,24 @@ export default {
 export const Default = () => {
   return rowBackgrounds
     .map((bg_color) =>
-      renderRow(
-        {
-          ...rowParagraphObject,
-          field_background_color: { value: bg_color },
-        },
-        rowContent,
-      )
-    )
-    .join("\n");
+      Row({
+        title: "Row Title",
+        background: bg_color,
+        content: rowContent,
+      })
+     ).join("\n");
 };
 
 export const RowTitleBorders = ({ rowClasses, ...args }) => {
   const imageCard = renderImageCard(imageCardParagraph, imageCardContent);
-  const content = { 
-    ...rowContent, 
-    field_content: `<div class="col-md-6">${imageCard}</div><div class="col-md-6">${imageCard}</div>` 
-  };
+  const content = `<div class="col-md-6">${imageCard}</div><div class="col-md-6">${imageCard}</div>`;
 
   return rowBackgrounds
     .map((bg_color) =>
-      renderRow(
-        {
-          ...rowParagraphObject,
-          field_background_color: { value: bg_color },
-        },
+      Row({
+        title: "Row Title",
+        background: bg_color,
         content,
-        rowClasses,
-      )
-    )
-    .join("\n");
+      })
+    ).join("\n");
 };

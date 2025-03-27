@@ -1,4 +1,83 @@
 /**
+ * A simplified wrapper for renderImageCard that focuses on common parameters
+ * @param {Object} options - Configuration options
+ * @param {string} options.placement - Image placement: 'above', 'below', 'left', 'right', or 'full' (default: 'left')
+ * @param {string} options.imageUrl - URL to the image (required)
+ * @param {string} options.imageAlt - Alt text for the image (default: '')
+ * @param {string} options.title - Card title (default: '')
+ * @param {string} options.description - HTML description content (default: '')
+ * @param {string} options.linkUrl - URL for the title and image (default: '')
+ * @param {boolean} options.enableLightbox - Add lightbox functionality (default: false)
+ * @param {boolean} options.addImageFrame - Add decorative frame to image (default: false)
+ * @param {boolean} options.overlappingTitle - Make title overlap the image (default: false)
+ * @param {Object} options.attributes - Additional HTML attributes (default: {})
+ * @returns {string} HTML markup for the image card
+ */
+export function ImageCard({
+  placement = 'left',
+  imageUrl,
+  imageAlt = '',
+  title = '',
+  description = '',
+  linkUrl = '',
+  enableLightbox = false,
+  addImageFrame = false,
+  overlappingTitle = false,
+  attributes = {}
+} = {}) {
+  // Calculate image dimensions - default to 16:9 ratio if not provided
+  // This could be improved with actual image dimension detection
+  const imageWidth = 1200;
+  const imageHeight = 675;
+  
+  // Build paragraph object with provided options
+  const paragraph = {
+    id: {
+      value: `card-${Date.now()}`  // Generate a unique ID
+    },
+    field_image: {
+      width: imageWidth,
+      height: imageHeight,
+      alt: imageAlt,
+      entity: {
+        fileuri: imageUrl || 'https://picsum.photos/600/400' // Fallback to placeholder
+      }
+    },
+    field_image_placement: {
+      value: placement
+    },
+    field_title: {
+      value: title
+    },
+    field_description: {
+      value: description
+    },
+    field_link: linkUrl ? {
+      url: linkUrl,
+      value: true
+    } : null,
+    field_enable_lightbox: {
+      value: enableLightbox
+    },
+    field_overlapping_title: {
+      value: overlappingTitle
+    },
+    field_add_image_frame: {
+      value: addImageFrame
+    }
+  };
+  
+  // Prepare content object
+  const content = {
+    field_title: title,
+    field_description: description
+  };
+  
+  // Call the original renderImageCard with our simplified parameters
+  return renderImageCard(paragraph, content, attributes);
+}
+
+/**
  * Renders an image card with the same markup as the Twig template
  * 
  * @param {Object} paragraph - The paragraph entity with fields

@@ -1,4 +1,72 @@
 /**
+ * A simplified wrapper for renderRow that focuses on the most common parameters
+ * @param {Object} options - Configuration options
+ * @param {string} options.title - Row title (optional)
+ * @param {string} options.content - HTML content to display in the row (required)
+ * @param {string} options.outerContainerClass - CSS class for outer container (optional)
+ * @param {string} options.innerContainerClass - CSS class for inner container (optional)
+ * @param {string} options.titleIconClass - CSS class for title icon (optional)
+ * @param {string} options.background - Background color (white, gray, primary, black) (optional, defaults to white)
+ * @param {boolean} options.noBorder - Remove bottom border (optional, defaults to false)
+ * @param {Object} options.attributes - Additional HTML attributes (optional)
+ * @returns {string} HTML markup for the content row
+ */
+export function Row({
+  title = "",
+  content = "",
+  outerContainerClass = "",
+  innerContainerClass = "",
+  titleIconClass = "",
+  background = "white",
+  noBorder = false,
+  attributes = {}
+} = {}) {
+  // Map simplified background names to actual values
+  const backgroundMap = {
+    white: "has_white_background",
+    gray: "has_gray_background",
+    light: "has_gray_background", // Alias for gray
+    primary: "has_primary_background",
+    black: "has_black_background"
+  };
+
+  // Build paragraph object with provided options
+  const paragraph = {
+    field_row_title: {
+      value: title
+    },
+    field_no_bottom_border: {
+      value: noBorder
+    },
+    field_background_color: {
+      value: backgroundMap[background] || "has_white_background"
+    },
+    field_outer_container_class: {
+      value: outerContainerClass
+    },
+    field_inner_container_class: {
+      value: innerContainerClass
+    },
+    field_row_title_icon_class: {
+      value: titleIconClass
+    },
+    // Set reasonable defaults for other parameters
+    field_no_top_spacing: { value: false },
+    field_no_bottom_spacing: { value: false },
+    field_no_container_until_xxl_wid: { value: false },
+    field_no_gutters: { value: false }
+  };
+
+  // Format content properly
+  const contentObj = typeof content === 'string' 
+    ? { field_content: content } 
+    : content;
+
+  // Call the original renderRow with our simplified parameters
+  return renderRow(paragraph, contentObj, "", attributes);
+}
+
+/**
  * Renders a content row similar to the content-row.html.twig template
  * @param {Object} paragraph - Paragraph configuration object
  * @param {Object} content - Content to render within the row
@@ -351,10 +419,10 @@ export const rowContent = {
 };
 
 export const rowBackgrounds = [
-  "has_white_background",
-  "has_gray_background",
-  "has_primary_background",
-  "has_black_background",
+  "white",
+  "light",
+  "primary",
+  "black",
 ];
 
 /**

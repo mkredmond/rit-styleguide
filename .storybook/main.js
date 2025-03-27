@@ -13,7 +13,7 @@ const config = {
     "@storybook/addon-a11y",
     "@ljcl/storybook-addon-cssprops",
     '@storybook/addon-viewport',
-    // "storybook-addon-pseudo-states"
+    // "storybook-addon-themes",
     {
       name: '@storybook/addon-docs',
       options: {

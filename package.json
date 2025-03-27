@@ -24,6 +24,7 @@
     "@storybook/test": "^8.6.4",
     "storybook": "^8.6.4",
     "storybook-addon-pseudo-states": "^4.0.2",
+    "storybook-addon-themes": "^6.1.0",
     "vite": "^6.2.0"
   },
   "dependencies": {
