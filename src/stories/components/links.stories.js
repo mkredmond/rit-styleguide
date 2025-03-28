@@ -1,5 +1,5 @@
 // import template from '../templates/row-full-width.template.html?raw'
-import { renderRow, rowParagraphObject, rowBackgrounds, rowContent } from '../../templates/Row';
+import { Row, rowParagraphObject, rowBackgrounds, rowContent } from '../../templates/Row';
 
 export default {
   title: "Components/Links",
@@ -12,19 +12,15 @@ export default {
 };
 
 const Template = ({content, title, ...args }) => {
-  return rowBackgrounds
-    .map((bg_color) => 
-      renderRow({
-        ...rowParagraphObject,
-        field_background_color: { value: bg_color },
-        field_row_title: { value: title, },
-      }, 
-      {
-        ...rowContent, 
-        field_content: content ,
-      })
-    )
-    .join("\n");
+
+    return rowBackgrounds.map((bg_color) =>
+        Row({
+          title,
+          background: bg_color,
+          innerContainerClass: `max-width-800-mx-auto lead-full-width`,
+          content,
+        })
+      ).join("\n");
 };
 
 export const Default = Template.bind({});
@@ -490,4 +486,17 @@ MultipleIcons.args = {
   </li>
 </ul>
 `
+};
+
+export const OverrideIconColor = Template.bind({});
+OverrideIconColor.args = {
+  title: "Override Icon Color",
+  content: `<div>
+  <a style="--fa-color: pink" class="far fa-video" href="#">Event Video Production</a>
+  <br>
+  <a style="--fa-color: aliceblue" class="fa-laptop-code far" href="#">Website and Application Development</a>
+  <br>
+  <a style="--fa-color: brick" class="fa-paragraph far" href="#">Writing and Design</a>
+  <br>
+  <a style="--fa-color: red" class="fa-paragraph far" href="#">Writing and Design</a>`
 };

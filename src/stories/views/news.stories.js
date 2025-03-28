@@ -1,10 +1,8 @@
-import template from "./latest-news.html?raw";
-import directoryNews from "./directory-news.html?raw";
+import template from "./news-latest.html?raw";
+import directoryNews from "./news-directory.html?raw";
+import noImageNews from "./news-no-image.html?raw";
 import {
-  renderRow,
-  rowParagraphObject,
-  rowBackgrounds,
-  rowContent,
+  Row
 } from "../../templates/Row";
 
 export default {
@@ -12,16 +10,10 @@ export default {
 };
 
 const Template = ({ content, title, ...args }) => {
-  return renderRow(
-        {
-          ...rowParagraphObject,
-          field_row_title: { value: title },
-        },
-        {
-          ...rowContent,
-          field_content: content,
-        }
-      );
+  return Row({
+    title, 
+    content
+  })
 };
 
 export const Default = Template.bind({});
@@ -34,4 +26,10 @@ export const DirectoryNews = Template.bind({});
 DirectoryNews.args = {
   title: "Directory News",
   content: directoryNews,
+};
+
+export const NewWithNoImage = Template.bind({});
+NewWithNoImage.args = {
+  title: "No Image",
+  content: noImageNews,
 };

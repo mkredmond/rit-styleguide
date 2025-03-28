@@ -5,6 +5,8 @@ import * as LinkStories from './links.stories';
 
 ## There are multiple ways to create a link with an icon. Here are a few examples:
 
+**Note** that the icon color is derived from the `--fa-color` css variable. The CSS rules should automatically set this corrects for the various background colors (`.bg-black`, `.bg-light`, `.bg-primary`) but it can be overridden in the situation it needs to be. This can be done via a class redeclaring it's value or simply adding `style="--fa-color: pink"` to the tag itself.
+
 <Unstyled>
     <div class="border px-3 pt-3 my-4">
         <p>Add an icon to a link element:</p>

@@ -8,12 +8,9 @@ const config = {
   ],
   "addons": [
     "@storybook/addon-essentials",
-    // "@chromatic-com/storybook",
-    // "@storybook/addon-interactions", 
     "@storybook/addon-a11y",
     "@ljcl/storybook-addon-cssprops",
     '@storybook/addon-viewport',
-    // "storybook-addon-themes",
     {
       name: '@storybook/addon-docs',
       options: {
