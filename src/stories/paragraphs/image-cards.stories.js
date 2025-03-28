@@ -23,7 +23,6 @@ export default {
         "row--title--large-underline-bottom yellow",
       ],
       table: {
-        category: 'Layout',
         defaultValue: { summary: "left" },
         type: { summary: "string" }
       }
@@ -40,49 +39,30 @@ export default {
         "image-card-thirds",
         "overlap-title-full-offset",
       ],
-      table: {
-        category: 'Layout'
-      }
     },
     placement: {
       control: "select",
       options: ["left", "right", "above"],
       defaultValue: "left",
       table: {
-        category: 'Image',
         defaultValue: { summary: "left" },
         type: { summary: "string" }
       }
     },
     imageUrl: {
       control: "text",
-      table: {
-        category: 'Image'
-      }
     },
     imageAlt: {
       control: "text",
-      table: {
-        category: 'Image'
-      }
     },
     title: {
       control: "text",
-      table: {
-        category: 'Content'
-      }
     },
     description: {
       control: "text",
-      table: {
-        category: 'Content'
-      }
     },
     linkUrl: {
       control: "text",
-      table: {
-        category: 'Content'
-      }
     },
   },
   parameters: {
