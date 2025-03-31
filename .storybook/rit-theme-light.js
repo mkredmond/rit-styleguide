@@ -3,7 +3,7 @@ import { create } from '@storybook/theming/create';
 export default create({
   base: 'light',
   // Typography
-  fontBase: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+  fontBase: 'Arial, sans-serif',
   fontCode: 'monospace',
 
   brandTitle: 'RIT Style Guide',
@@ -16,25 +16,25 @@ export default create({
   colorSecondary: '#585C6D',
 
   // UI
-  appBg: 'oklch(0.968 0.007 247.896)',
-  appContentBg: 'oklch(0.929 0.013 255.508)',
-  appPreviewBg: '#fff',
-  appBorderColor: '#ddd',
+  appBg: '#F7F7F7',
+  appContentBg: '#EFEFEF',
+  appPreviewBg: '#FFFFFF',
+  appBorderColor: '#DDDDDD',
   appBorderRadius: 4,
 
   // Text colors
   textColor: '#10162F',
-  textInverseColor: '#ffffff',
+  textInverseColor: '#FFFFFF',
 
   // Toolbar default and active colors
   barTextColor: '#9E9E9E',
   barSelectedColor: '#585C6D',
   barHoverColor: '#585C6D',
-  barBg: '#ffffff',
+  barBg: '#FFFFFF',
 
   // Form colors
-  inputBg: 'oklch(0.968 0.007 247.896)',
-  inputBorder: 'oklch(0.554 0.046 257.417)',
+  inputBg: '#F7F7F7',
+  inputBorder: '#7A7A7A',
   inputTextColor: '#10162F',
   inputBorderRadius: 2,
 });

@@ -10,6 +10,7 @@ import {
 export default {
   title: "Paragraphs/Image Cards",
   argTypes: {
+    // Add a background control for selecting row background
     outerContainerClass: {
       control: "multi-select",
       options: [
@@ -23,8 +24,7 @@ export default {
         "row--title--large-underline-bottom yellow",
       ],
       table: {
-        defaultValue: { summary: "left" },
-        type: { summary: "string" }
+        // Category removed
       }
     },
     innerContainerClass: {
@@ -39,6 +39,9 @@ export default {
         "image-card-thirds",
         "overlap-title-full-offset",
       ],
+      table: {
+        // Category removed
+      }
     },
     placement: {
       control: "select",
@@ -46,23 +49,38 @@ export default {
       defaultValue: "left",
       table: {
         defaultValue: { summary: "left" },
-        type: { summary: "string" }
+        // Category removed
       }
     },
     imageUrl: {
       control: "text",
+      table: {
+        // Category removed
+      }
     },
     imageAlt: {
       control: "text",
+      table: {
+        // Category removed
+      }
     },
     title: {
       control: "text",
+      table: {
+        // Category removed
+      }
     },
     description: {
       control: "text",
+      table: {
+        // Category removed
+      }
     },
     linkUrl: {
       control: "text",
+      table: {
+        // Category removed
+      }
     },
   },
   parameters: {
@@ -79,13 +97,14 @@ const Template = ({
   title = "", 
   description, 
   linkUrl = "", 
+  backgrounds = rowBackgrounds,
 }) => {
 
   const renderedCard = ImageCard({ placement, imageUrl, imageAlt, title, description, linkUrl });
 
-  return rowBackgrounds.map((bg_color) =>
+  return backgrounds.map((bg) =>
     Row({
-      background: bg_color,
+      background: bg,
       outerContainerClass,
       innerContainerClass: `max-width-800-mx-auto lead-full-width ${innerContainerClass}`,
       content: renderedCard,

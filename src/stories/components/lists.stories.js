@@ -40,15 +40,15 @@ export default {
 };
 
 
-const Template = ({ listClass, content, ...args }) => {
+const Template = ({ listClass, content, backgrounds = rowBackgrounds }) => {
   const classes = Array.isArray(listClass) ? Array.from(listClass).join(' ') : listClass;
   const dynamicList = `<ul class="${classes}">
     ${content}
   </ul>`;
 
-  return rowBackgrounds.map((bg_color) =>
+  return backgrounds.map((bg) =>
     Row({
-      background: bg_color,
+      background: bg,
       // innerContainerClass: `max-width-800-mx-auto lead-full-width`,
       content: dynamicList,
     })
@@ -76,4 +76,5 @@ export const ProgramsOfStudyListing = Template.bind({});
 ProgramsOfStudyListing.args = {
   listClass: 'mb-5 links-list list-style-none columns-3',
   content: ProgramsOfStudyListingContent,
+  backgrounds: ['white'] // This is only ever used on a white background
 };
