@@ -10,6 +10,7 @@ import {
 export default {
   title: "Paragraphs/Image Cards",
   argTypes: {
+    // Add a background control for selecting row background
     outerContainerClass: {
       control: "multi-select",
       options: [
@@ -23,9 +24,7 @@ export default {
         "row--title--large-underline-bottom yellow",
       ],
       table: {
-        category: 'Layout',
-        defaultValue: { summary: "left" },
-        type: { summary: "string" }
+        // Category removed
       }
     },
     innerContainerClass: {
@@ -41,7 +40,7 @@ export default {
         "overlap-title-full-offset",
       ],
       table: {
-        category: 'Layout'
+        // Category removed
       }
     },
     placement: {
@@ -49,39 +48,38 @@ export default {
       options: ["left", "right", "above"],
       defaultValue: "left",
       table: {
-        category: 'Image',
         defaultValue: { summary: "left" },
-        type: { summary: "string" }
+        // Category removed
       }
     },
     imageUrl: {
       control: "text",
       table: {
-        category: 'Image'
+        // Category removed
       }
     },
     imageAlt: {
       control: "text",
       table: {
-        category: 'Image'
+        // Category removed
       }
     },
     title: {
       control: "text",
       table: {
-        category: 'Content'
+        // Category removed
       }
     },
     description: {
       control: "text",
       table: {
-        category: 'Content'
+        // Category removed
       }
     },
     linkUrl: {
       control: "text",
       table: {
-        category: 'Content'
+        // Category removed
       }
     },
   },
@@ -99,13 +97,14 @@ const Template = ({
   title = "", 
   description, 
   linkUrl = "", 
+  backgrounds = rowBackgrounds,
 }) => {
 
   const renderedCard = ImageCard({ placement, imageUrl, imageAlt, title, description, linkUrl });
 
-  return rowBackgrounds.map((bg_color) =>
+  return backgrounds.map((bg) =>
     Row({
-      background: bg_color,
+      background: bg,
       outerContainerClass,
       innerContainerClass: `max-width-800-mx-auto lead-full-width ${innerContainerClass}`,
       content: renderedCard,

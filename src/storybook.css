@@ -1,5 +1,13 @@
+*:not(code, [class*="fa-"]) {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
 html {
-    background-color: initial !important;
+  background-color: initial !important;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .gap-3 {
