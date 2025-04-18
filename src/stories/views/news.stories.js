@@ -1,6 +1,6 @@
-import template from "./news-latest.html?raw";
-import directoryNews from "./news-directory.html?raw";
-import noImageNews from "./news-no-image.html?raw";
+import template from "../html-templates/news-latest.html?raw";
+import directoryNews from "../html-templates/news-directory.html?raw";
+import noImageNews from "../html-templates/news-no-image.html?raw";
 import {
   Row
 } from "../../templates/Row";

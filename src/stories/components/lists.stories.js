@@ -1,6 +1,6 @@
 import { Row, rowBackgrounds } from '../../templates/Row';
-import LinksWithCustomIconsContent from './ListsWithCustomIcons.html?raw';
-import ProgramsOfStudyListingContent from './ProgramsOfStudyListing.html?raw';
+import LinksWithCustomIconsContent from '../html-templates/ListsWithCustomIcons.html?raw';
+import ProgramsOfStudyListingContent from '../html-templates/ProgramsOfStudyListing.html?raw';
 
 export default {
   title: "Components/Lists",

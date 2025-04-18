@@ -1,5 +1,5 @@
 // import template from '../templates/row-full-width.template.html?raw'
-import MultipleIconsContent from './links-multiple-icons.html?raw';
+import MultipleIconsContent from '../html-templates/links-multiple-icons.html?raw';
 import { Row, rowBackgrounds } from '../../templates/Row';
 
 export default {

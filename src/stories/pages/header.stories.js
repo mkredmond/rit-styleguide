@@ -1,4 +1,4 @@
-import HeaderContent from './header.html?raw';
+import HeaderContent from '../html-templates/header.html?raw';
 export default {}
 
 export const Header = () => {

@@ -1,170 +1,68 @@
 :root {
     --base: 1rem;
 
+    --display-1: clamp(4rem, 3.636vw + 3.091rem, 6rem);
+    --display-2: clamp(1.0625rem, 2.159vw + 0.523rem, 2.25rem);
+    --display-3: clamp(1.0625rem, 2.159vw + 0.523rem, 2.25rem);
+    --display-4: clamp(1.167rem, 0.000vw + 1.167rem, 1.167rem);
     
-
-    --h1-font-size: 4.25rem;
+    --h1-font-size: clamp(4rem, 0.455vw + 3.886rem, 4.25rem);
     --h1-font-weight: bold;
-    --h1-line-height: calc(4.5 / 4.25);
+    --h1-line-height: 1.3;
     --h1-margin-bottom: .5em;
     --h1-color: #000;
 
-    --h2-font-size: 3.125rem;
+   	--h2-font-size: clamp(2.25rem, 1.591vw + 1.852rem, 3.125rem);
     --h2-font-weight: 400;
-    --h2-line-height: calc(2.5 / 2.25);
+    --h2-line-height: 1.3;
     --h2-margin-bottom: .25em;
     --h2-color: #f76902;
 
-    --h3-font-size: 2rem;
+    --h3-font-size: clamp(1.5rem, 0.909vw + 1.273rem, 2rem);
     --h3-font-weight: bold;
-    --h3-line-height: calc(2.25 / 2);
+    --h3-line-height: 1.3;
     --h3-margin-bottom: .25em;
     --h3-color: #757575;
 
-    --h4-font-size: 1.5rem;
+    --h4-font-size: clamp(1.3rem, 0.364vw + 1.209rem, 1.5rem);
     --h4-font-weight: normal;
-    --h4-line-height: calc(2 / 1.5);
+    --h4-line-height: 1.3;
     --h4-margin-bottom: .25em;
     --h4-color: #000;
 
-    --h5-font-size: 1.25rem;
+    --h5-font-size: clamp(1.15rem, 0.182vw + 1.105rem, 1.25rem);
     --h5-font-weight: bold;
-    --h5-line-height: calc(1.75 / 1.5);
+    --h5-line-height: 1.3;
     --h5-margin-bottom: .25em;
-    --h5-color: #f76902;
+    --h5-color: #000;
 
-    --h6-font-size: 1.15rem;
+    --h6-font-size: clamp(1rem, 0.273vw + 0.932rem, 1.15rem);
     --h6-font-weight: bold;
-    --h6-line-height: calc(1.5 / 1.25);
+    --h6-line-height: 1.3;
     --h6-margin-bottom: .25em;
     --h6-color: #000;
 }
 
-@media (max-width: 767.98px) {
-	:root {
-		--h1-font-size: 4rem;
-		--h1-line-height: calc(4.5 / 4.25);
-		--h1-margin-bottom: .5em;
-
-		--h2-font-size: 2.25rem;
-		--h2-line-height: calc(2.5 / 2.25);
-		--h2-margin-bottom: .15em;
-
-		--h3-font-size: 1.5rem;
-		--h3-line-height: calc(1.75 / 1.5);
-		--h3-margin-bottom: .25em;
-
-		--h4-font-size: 1.3rem;
-		--h4-line-height: calc(1.6 / 1.3);
-		--h4-margin-bottom: .25em;
-
-		--h5-font-size: 1.15rem;
-		--h5-line-height: calc(1.5 / 1.15);
-		--h5-margin-bottom: .25em;
-
-		--h6-font-size: 1rem;
-		--h6-line-height: 1.15;
-		--h6-margin-bottom: .25em;
-	}
+/* Orange should only be used on black or white backgrounds */
+:is(.bg-light) {
+	--h2-color: #000;
 }
 
-body.custom-1 {
-	--h1-font-size: clamp(4rem, 0.455vw + 3.886rem, 4.25rem);
---h2-font-size: clamp(2.25rem, 1.591vw + 1.852rem, 3.125rem);
---h3-font-size: clamp(1.5rem, 0.909vw + 1.273rem, 2rem);
---h4-font-size: clamp(1.3rem, 0.364vw + 1.209rem, 1.5rem);
---h5-font-size: clamp(1.15rem, 0.182vw + 1.105rem, 1.25rem);
---h6-font-size: clamp(1rem, 0.273vw + 0.932rem, 1.15rem);
+:is(.bg-primary) {
+    --h1-color: #fff;
+	--h2-color: #fff;
+	--h3-color: #fff;
+	--h4-color: #fff;
+	--h5-color: #fff;
+	--h6-color: #fff;
 }
 
-/*
-body.major-second {
-    --fs-sm: clamp(0.89rem, 0.18vi + 0.84rem, 0.99rem);
-    --h6-font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-    --h5-font-size: clamp(1.13rem, 0.55vi + 0.99rem, 1.43rem);
-    --h4-font-size: clamp(1.27rem, 0.81vi + 1.06rem, 1.71rem);
-    --h3-font-size: clamp(1.42rem, 1.14vi + 1.14rem, 2.05rem);
-    --h2-font-size: clamp(1.6rem, 1.56vi + 1.21rem, 2.46rem);
-    --h1-font-size: clamp(1.8rem, 2.1vi + 1.28rem, 2.95rem);
-}
-*/
-
-body.major-second {
-	--fs-sm: clamp(0.89rem, 0vi + 0.89rem, 0.89rem);
-	--h6-font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-	--h5-font-size: clamp(1.13rem, 0.83vi + 0.92rem, 1.58rem);
-	--h4-font-size: clamp(1.27rem, 1.54vi + 0.88rem, 2.11rem);
-	--h3-font-size: clamp(1.42rem, 2.53vi + 0.79rem, 2.81rem);
-	--h2-font-size: clamp(1.6rem, 3.9vi + 0.63rem, 3.75rem);
-	--h1-font-size: clamp(1.8rem, 5.81vi + 0.35rem, 5rem);
-}
-
-/*
-body.minor-third-to-major-third {
-	--fs-sm: clamp(0.83rem, 0.58vi + 0.69rem, 1.15rem);
-	--fs-base: clamp(1rem, 0.8vi + 0.8rem, 1.44rem);
-	--h6-font-size: clamp(1.2rem, 1.09vi + 0.93rem, 1.8rem);
-	--h5-font-size: clamp(1.44rem, 1.47vi + 1.07rem, 2.25rem);
-	--h4-font-size: clamp(1.73rem, 1.96vi + 1.24rem, 2.81rem);
-	--h3-font-size: clamp(2.07rem, 2.61vi + 1.42rem, 3.51rem);
-	--h2-font-size: clamp(2.49rem, 3.45vi + 1.63rem, 4.39rem);
-	--h1-font-size: clamp(2.99rem, 4.54vi + 1.85rem, 5.48rem);
-}
-*/
-
-body.minor-third-to-major-third {
-    /* base font size 16, max base font size 20 */
-    --fs-sm: clamp(0.83rem, 0.3vi + 0.76rem, 1rem);
-    --fs-base: clamp(1rem, 0.45vi + 0.89rem, 1.25rem);
-    --h6-font-size: clamp(1.2rem, 0.66vi + 1.04rem, 1.56rem);
-    --h5-font-size: clamp(1.44rem, 0.93vi + 1.21rem, 1.95rem);
-    --h4-font-size: clamp(1.73rem, 1.3vi + 1.4rem, 2.44rem);
-    --h3-font-size: clamp(2.07rem, 1.78vi + 1.63rem, 3.05rem);
-    --h2-font-size: clamp(2.49rem, 2.41vi + 1.89rem, 3.81rem);
-    --h1-font-size: clamp(2.99rem, 3.24vi + 2.18rem, 4.77rem);
-}
-
-body.minor-third {
-    --fs-sm: clamp(0.83rem, 0.21vi + 0.78rem, 0.95rem);
-    --h6-font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-    --h5-font-size: clamp(1.2rem, 0.52vi + 1.07rem, 1.48rem);
-    --h4-font-size: clamp(1.44rem, 0.76vi + 1.25rem, 1.86rem);
-    --h3-font-size: clamp(1.73rem, 1.08vi + 1.46rem, 2.32rem);
-    --h2-font-size: clamp(2.07rem, 1.5vi + 1.7rem, 2.9rem);
-    --h1-font-size: clamp(2.49rem, 2.06vi + 1.97rem, 3.62rem);
-}
-
-body.major-third {
-    --fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
-    --h6-font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-    --h5-font-size: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
-    --h4-font-size: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
-    --h3-font-size: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
-    --h2-font-size: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
-    --h1-font-size: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
-}
-
-
-body.major-third-to-perfect-fourth {
-    /* base font size 18, max base font size 19 */
-    --base: clamp(1.13rem, 0.11vi + 1.1rem, 1.19rem);
-    --h6-font-size: clamp(1.41rem, 0.32vi + 1.33rem, 1.58rem);
-    --h5-font-size: clamp(1.76rem, 0.64vi + 1.6rem, 2.11rem);
-    --h4-font-size: clamp(2.2rem, 1.12vi + 1.92rem, 2.81rem);
-    --h3-font-size: clamp(2.75rem, 1.82vi + 2.29rem, 3.75rem);
-    --h2-font-size: clamp(3.43rem, 2.84vi + 2.72rem, 5rem);
-    --h1-font-size: clamp(4.29rem, 4.31vi + 3.21rem, 6.66rem);
-}
-
-
-body.perfect-fourth {
-    --fs-sm: clamp(0.75rem, 0.16vi + 0.71rem, 0.84rem);
-    --h6-font-size: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-    --h5-font-size: clamp(1.33rem, 0.63vi + 1.18rem, 1.68rem);
-    --h4-font-size: clamp(1.78rem, 1.09vi + 1.51rem, 2.37rem);
-    --h3-font-size: clamp(2.37rem, 1.8vi + 1.92rem, 3.36rem);
-    --h2-font-size: clamp(3.16rem, 2.89vi + 2.43rem, 4.75rem);
-    --h1-font-size: clamp(4.21rem, 4.55vi + 3.07rem, 6.71rem);
+:is(.bg-black) {
+    --h1-color: #fff;
+    --h3-color: #fff;
+    --h4-color: #fff;
+    --h5-color: #fff;
+    --h6-color: #fff;
 }
 
 h1,
@@ -177,12 +75,22 @@ h1,
 }
 
 h2,
-:not(#banner-item-2).h2 {
+.h2 {
     font-size: var(--h2-font-size);
     font-weight: var(--h2-font-weight);
     line-height: var(--h2-line-height);
     color: var(--h2-color);
     margin-bottom: var(--h2-margin-bottom);
+}
+
+#header--middle--site-text .h2 {
+	font-size: var(--display-2);
+}
+
+.new-banner-font-styles .h2 {
+    font-size: clamp(2rem, 11cqi, 2.75rem);
+    line-height: clamp(2.25rem, 11cqi, 3rem);
+    font-weight: bold;
 }
 
 h3,
@@ -212,6 +120,12 @@ h5,
     margin-bottom: var(--h5-margin-bottom);
 }
 
+[class*="view-program-featured-profiles-carousel"] .h5,
+.new-banner-font-styles > * {
+	color: #FFFFFF !important;
+}
+
+
 h6,
 .h6 {
     font-size: var(--h6-font-size);
@@ -221,10 +135,6 @@ h6,
     margin-bottom: var(--h6-margin-bottom);
 }
 
-[class*="view-program-featured-profiles-carousel"] .h5,
-.new-banner-font-styles > * {
-	color: #FFFFFF !important;
-}
 
 p {
 	line-height: 1.5;

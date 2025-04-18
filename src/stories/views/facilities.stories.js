@@ -1,4 +1,4 @@
-import template from "./facilities.html?raw";
+import template from "../html-templates/facilities.html?raw";
 import {
   renderRow,
   rowParagraphObject,
