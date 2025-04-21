@@ -1,3 +1,5 @@
+import EditorialGuidelinesContent from '../html-templates/editorial-guildelines.html?raw';
+import ChemistryBSContent from '../html-templates/chemistry-bs.html?raw';
 
 export default {
   title: "Typography/Headings",
@@ -50,31 +52,9 @@ export const NewHeadingStyles = ({ content, bg,...args }) => {
     `;
 };
 
-export const NewHeadingStylesWithText = ({ content, ...args }) => {
-  content = content || "Quo usque tandem abutere, Catilina, patientia nostra?";
-  return `
-    <div class="container">
-        ${HeadingTemplate({ content, level: 1 })}
-        ${HeadingTemplate({ content, level: 2 })}
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        ${HeadingTemplate({ content, level: 2 })}
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p> 
-        ${HeadingTemplate({ content, level: 2 })}
-        ${HeadingTemplate({ content, level: 3 })}
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        ${HeadingTemplate({ content, level: 4 })}
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        ${HeadingTemplate({ content, level: 4 })}
-        ${HeadingTemplate({ content, level: 5 })}
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        ${HeadingTemplate({ content, level: 6 })}
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-        <p>Non equidem invideo, miror magis posuere velit aliquet. Quisque placerat facilisis egestas cillum dolore. Curabitur blandit tempus ardua ridiculus sed magna. Contra legem facit qui id facit quod lex prohibet. Petierunt uti sibi concilium totius Galliae in diem certam indicere.</p>
-    </div>
-    `;
-};
+export const EditorialGuidelines = () => {
+  return EditorialGuidelinesContent;
+}
+export const ChemistryBS = () => {
+  return ChemistryBSContent;
+}

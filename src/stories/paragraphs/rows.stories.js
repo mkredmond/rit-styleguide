@@ -1,6 +1,5 @@
 import {
   Row,
-  rowParagraphObject,
   rowContent,
   rowBackgrounds,
 } from "../../templates/Row";
